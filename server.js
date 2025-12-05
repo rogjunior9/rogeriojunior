@@ -19,6 +19,11 @@ app.get('*', (req, res) => {
         return;
     }
 
+    // Prevent caching for index.html so updates are seen immediately
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 

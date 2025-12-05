@@ -12,7 +12,13 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle SPA routing: return index.html for any unknown route
-app.get(/(.*)/, (req, res) => {
+app.get('*', (req, res) => {
+    // Determine if the request is for an asset (js, css, png, etc.) that wasn't found
+    if (req.path.includes('.')) {
+        res.status(404).end();
+        return;
+    }
+
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 

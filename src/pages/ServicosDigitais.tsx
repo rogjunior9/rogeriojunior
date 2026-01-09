@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, FileText, Target, Share2, Trophy, Zap, Users, BarChart, CheckCircle } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
 
 function ServicosDigitais() {
   return (
     <div className="bg-black text-white min-h-screen">
+      <SEO
+        title="Serviços Digitais - Marketing Digital & Tráfego Pago"
+        description="Impulsione sua presença digital com nossos serviços: tráfego pago (Meta Ads, Google Ads), gestão de redes sociais, elaboração de currículos e muito mais."
+        canonical="/servicos-digitais"
+        keywords="marketing digital, tráfego pago, meta ads, google ads, gestão redes sociais, currículo profissional, BH"
+      />
       <div className="max-w-7xl mx-auto px-4 py-16">
         <Link to="/" className="inline-flex items-center text-gray-300 hover:text-accent transition-colors mb-12 font-display uppercase tracking-wider font-bold">
           <ArrowLeft className="mr-2" size={20} />

@@ -7,11 +7,20 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 group">
           <div className="relative h-[100px] overflow-hidden flex">
-            <img
-              src="/images/logo-rj.png"
-              alt="logo Rogério Júnior"
-              className="h-full w-auto object-contain"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/images/logo-rj-sm.webp 400w, /images/logo-rj-md.webp 800w, /images/logo-rj.webp 1200w"
+                sizes="(max-width: 640px) 200px, 300px"
+              />
+              <img
+                src="/images/logo-rj.png"
+                alt="Logo Rogério Júnior"
+                className="h-full w-auto object-contain"
+                width="300"
+                height="100"
+              />
+            </picture>
           </div>
         </Link>
         <nav className="flex items-center gap-6 font-display uppercase tracking-wider">
@@ -45,11 +54,14 @@ const Header: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 bg-accent hover:bg-yellow-600 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-none uppercase font-bold font-display transition-colors tracking-wide text-xs sm:text-base"
+          aria-label="Solicitar orçamento via WhatsApp"
         >
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-            alt="WhatsApp Business"
+            alt="WhatsApp"
             className="w-5 h-5 sm:w-6 sm:h-6"
+            width="24"
+            height="24"
           />
           <span className="hidden sm:inline">
             Solicite seu orçamento

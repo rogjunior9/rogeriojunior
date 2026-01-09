@@ -1,4 +1,5 @@
 import React from "react";
+import OptimizedImage from "./OptimizedImage";
 
 interface ProjectCardProps {
   id: string;
@@ -7,7 +8,7 @@ interface ProjectCardProps {
   image: string;
   tags: string[];
   link: string;
-  isHighlighted?: boolean; // Adicionado para permitir destaque opcional
+  isHighlighted?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -17,7 +18,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   tags,
   link,
-  isHighlighted = false, // Valor padrão é false
+  isHighlighted = false,
 }) => {
   return (
     <a href={link || "#"}>
@@ -27,10 +28,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           }`}
       >
         <div className="aspect-video overflow-hidden">
-          <img
+          <OptimizedImage
             src={image}
             alt={title}
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+            width={800}
+            height={450}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
           />
         </div>
         <div className="p-6">

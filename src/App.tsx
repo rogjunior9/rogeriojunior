@@ -12,6 +12,7 @@ const ServicosAereos = lazy(() => import('./pages/ServicosAereos'));
 const AutomacoesIA = lazy(() => import('./pages/AutomacoesIA'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
+const GeradorQRCode = lazy(() => import('./pages/GeradorQRCode'));
 const NaoEncontrado = lazy(() => import('./pages/NaoEncontrado'));
 
 declare global {
@@ -78,6 +79,7 @@ function App() {
             <Route path="/automacoes-ia" element={<AutomacoesIA />} />
             <Route path="/politica-privacidade" element={<PrivacyPolicy />} />
             <Route path="/termos" element={<TermsAndConditions />} />
+            <Route path="/gerador-qrcode" element={<GeradorQRCode />} />
             <Route path="*" element={<NaoEncontrado />} />
           </Routes>
         </Suspense>
@@ -110,6 +112,7 @@ function App() {
               <button
                 onClick={() => setShowConsent(false)}
                 className="text-gray-400 hover:text-white"
+                aria-label="Fechar aviso de cookies"
               >
                 <X size={24} />
               </button>

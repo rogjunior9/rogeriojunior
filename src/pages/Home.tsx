@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-  Linkedin,
-  Mail,
-  ChevronDown,
-  Code2,
-  Palette,
-  Rocket,
-  Camera,
-  Instagram,
-  Facebook,
-  Youtube,
-} from "lucide-react";
+import { Linkedin, Mail, ChevronDown, Code2, Palette, Rocket, Camera, Instagram, Facebook, Youtube, X } from "lucide-react";
 
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
 import ContactForm from "../components/ContactForm";
+import SEO from "../components/SEO";
 
 function Home() {
   const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
@@ -40,6 +30,12 @@ function Home() {
 
   return (
     <div className="bg-black text-white min-h-screen">
+      <SEO
+        title="Rogério Júnior - Desenvolvedor Full Stack & Consultor Digital em BH"
+        description="Desenvolvedor Full Stack e Consultor Digital em Belo Horizonte. Especialista em marketing digital, criação de sites, aplicativos e automações com IA."
+        canonical="/"
+        keywords="desenvolvedor full stack, marketing digital, consultor digital, criação de sites, BH, Belo Horizonte"
+      />
       {/* Hero Section */}
       <section
         className="h-[calc(100vh-4rem)] relative flex flex-col justify-center items-center px-4"
@@ -64,6 +60,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent transition-colors"
+              aria-label="Seguir no Instagram"
             >
               <Instagram size={24} />
             </a>
@@ -72,6 +69,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent transition-colors"
+              aria-label="Seguir no Facebook"
             >
               <Facebook size={24} />
             </a>
@@ -80,6 +78,7 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent transition-colors"
+              aria-label="Conectar no LinkedIn"
             >
               <Linkedin size={24} />
             </a>
@@ -88,19 +87,30 @@ function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-accent transition-colors"
+              aria-label="Inscrever-se no YouTube"
             >
               <Youtube size={24} />
             </a>
             <a
+              href="https://x.com/Rogjunior9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+              aria-label="Seguir no X (Twitter)"
+            >
+              <X size={24} />
+            </a>
+            <a
               href="mailto:contato@rogeriojunior.com.br"
               className="hover:text-accent transition-colors"
+              aria-label="Enviar e-mail"
             >
               <Mail size={24} />
             </a>
           </div>
         </div>
         <div className="absolute bottom-8 animate-bounce text-accent">
-          <a href="#sobre-mim">
+          <a href="#sobre-mim" aria-label="Rolar para seção Sobre Mim">
             <ChevronDown size={50} />
           </a>
         </div>
@@ -114,11 +124,21 @@ function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <img
-                src="/images/rj.jpg"
-                alt="Perfil"
-                className="rounded-lg shadow-2xl border-2 border-primary"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/images/rj-sm.webp 400w, /images/rj-md.webp 800w, /images/rj.webp 1200w"
+                  sizes="(max-width: 640px) 100vw, 400px"
+                />
+                <img
+                  src="/images/rj.jpg"
+                  alt="Rogério Júnior - Desenvolvedor Full Stack"
+                  className="rounded-lg shadow-2xl border-2 border-primary"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div className="space-y-4">
               <p className="text-gray-300 text-justify text-lg font-light leading-relaxed font-sans">
@@ -175,7 +195,7 @@ function Home() {
               id="mg-solos"
               title="MG Solos"
               description="Site corporativo para empresa de engenharia de solos, transmitindo autoridade e confiança técnica."
-              image="https://images.unsplash.com/photo-1581094794329-cdac82a6cc88?auto=format&fit=crop&q=80&w=800"
+              image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
               tags={["Site Institucional", "Engenharia", "Corporativo"]}
               link="https://www.mgsolos.com.br"
               isHighlighted={highlightedCard === "mg-solos"}
@@ -215,6 +235,15 @@ function Home() {
               tags={["Bubble", "99", "Uber"]}
               link="https://motoristaapp-95911.bubbleapps.io/version-test"
               isHighlighted={highlightedCard === "motoristaapp"}
+            />
+            <ProjectCard
+              id="gerador-qrcode"
+              title="Gerador de QR Code"
+              description="Ferramenta gratuita para criar QR Codes personalizados. Escolha cores, tamanho e baixe em PNG ou SVG."
+              image="https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&q=80&w=800"
+              tags={["Ferramenta", "Gratuito", "QR Code"]}
+              link="/gerador-qrcode"
+              isHighlighted={highlightedCard === "gerador-qrcode"}
             />
           </div>
         </div>

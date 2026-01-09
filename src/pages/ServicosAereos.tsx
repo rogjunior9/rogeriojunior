@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Camera, Video, Map, Share2, Trophy, Zap, Users, CheckCircle } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
 
 function ServicosAereos() {
     return (
         <div className="bg-black text-white min-h-screen">
+            <SEO
+                title="Serviços Aéreos - Drone, Fotografia e Filmagem 4K"
+                description="Captura de imagens aéreas com drone em BH: fotografia 48MP, filmagem 4K, mapeamento e inspeções. Pilotos certificados ANAC."
+                canonical="/servicos-aereos"
+                keywords="drone BH, fotografia aérea, filmagem drone 4K, mapeamento drone, inspeção com drone, piloto drone ANAC"
+            />
             <div className="max-w-7xl mx-auto px-4 py-16">
                 <Link to="/" className="inline-flex items-center text-gray-300 hover:text-accent transition-colors mb-12 font-display uppercase tracking-wider font-bold">
                     <ArrowLeft className="mr-2" size={20} />

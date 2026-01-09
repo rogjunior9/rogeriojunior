@@ -1,10 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Bot, Cpu, MessageSquare, Zap, BarChart, CheckCircle, Workflow } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import SEO from '../components/SEO';
 
 function AutomacoesIA() {
     return (
         <div className="bg-black text-white min-h-screen">
+            <SEO
+                title="Automações com IA - n8n, ManyChat e Chatbots Inteligentes"
+                description="Escale seu negócio com automações de IA. Chatbots inteligentes, integração de sistemas com n8n, ManyChat para Instagram e WhatsApp."
+                canonical="/automacoes-ia"
+                keywords="automação IA, n8n, manychat, chatbot whatsapp, chatbot instagram, automação processos, inteligência artificial"
+            />
             <div className="max-w-7xl mx-auto px-4 py-16">
                 <Link to="/" className="inline-flex items-center text-gray-300 hover:text-accent transition-colors mb-12 font-display uppercase tracking-wider font-bold">
                     <ArrowLeft className="mr-2" size={20} />

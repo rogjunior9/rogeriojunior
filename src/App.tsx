@@ -1,15 +1,16 @@
 import { useEffect, useState, Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { X, Loader2 } from 'lucide-react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SdrChat from './components/SdrChat';
+import { trackLead } from './lib/analytics';
 
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
-const Bio = lazy(() => import('./pages/Bio'));
-const ServicosDigitais = lazy(() => import('./pages/ServicosDigitais'));
-const ServicosAereos = lazy(() => import('./pages/ServicosAereos'));
+const MarketingDigital = lazy(() => import('./pages/MarketingDigital'));
 const AutomacoesIA = lazy(() => import('./pages/AutomacoesIA'));
+const Agendamento = lazy(() => import('./pages/Agendamento'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
 const GeradorQRCode = lazy(() => import('./pages/GeradorQRCode'));
@@ -19,6 +20,11 @@ declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     gtag?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    fbq?: (...args: any[]) => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dataLayer?: Array<Record<string, any>>;
+    loadMetaPixel?: () => void;
   }
 }
 
@@ -34,6 +40,27 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleLeadClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const whatsappLink = target.closest<HTMLAnchorElement>(
+        'a[href*="wa.me/"], a[href*="api.whatsapp.com/"]'
+      );
+
+      if (!whatsappLink) return;
+
+      trackLead({
+        source: 'whatsapp',
+        location: whatsappLink.dataset.leadLocation || 'link_whatsapp',
+      });
+    };
+
+    document.addEventListener('click', handleLeadClick);
+    return () => document.removeEventListener('click', handleLeadClick);
+  }, []);
+
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'true');
     setShowConsent(false);
@@ -42,9 +69,13 @@ function App() {
     if (window.gtag) {
       window.gtag('consent', 'update', {
         ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
         analytics_storage: 'granted',
       });
     }
+
+    window.loadMetaPixel?.();
   };
 
   const handleDecline = () => {
@@ -55,6 +86,8 @@ function App() {
     if (window.gtag) {
       window.gtag('consent', 'update', {
         ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
         analytics_storage: 'denied',
       });
     }
@@ -73,10 +106,10 @@ function App() {
         <Suspense fallback={<LoadingFallback />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/bio" element={<Bio />} />
-            <Route path="/servicos-digitais" element={<ServicosDigitais />} />
-            <Route path="/servicos-aereos" element={<ServicosAereos />} />
+            <Route path="/marketing-digital" element={<MarketingDigital />} />
+            <Route path="/servicos-digitais" element={<Navigate to="/marketing-digital" replace />} />
             <Route path="/automacoes-ia" element={<AutomacoesIA />} />
+            <Route path="/agendamento" element={<Agendamento />} />
             <Route path="/politica-privacidade" element={<PrivacyPolicy />} />
             <Route path="/termos" element={<TermsAndConditions />} />
             <Route path="/gerador-qrcode" element={<GeradorQRCode />} />
@@ -85,6 +118,7 @@ function App() {
         </Suspense>
       </main>
       <Footer />
+      <SdrChat />
 
       {showConsent && (
         <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-800 p-4 shadow-lg">

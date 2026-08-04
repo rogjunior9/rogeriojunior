@@ -10,9 +10,9 @@
 
   <!-- SEO Meta Tags -->
   <meta name="description"
-    content="Rogério Júnior - Desenvolvedor Full Stack e Consultor Digital em Belo Horizonte. Especialista em marketing digital, criação de sites, aplicativos e automações com IA. Transforme sua presença digital." />
+    content="Rogério Júnior, expert em marketing digital e desenvolvedor full stack em Belo Horizonte. Estratégia, tráfego pago, sites, landing pages e automações com n8n e IA." />
   <meta name="keywords"
-    content="desenvolvedor full stack, marketing digital, consultor digital, criação de sites, BH, Belo Horizonte, automação IA, tráfego pago, Meta Ads, Google Ads" />
+    content="expert em marketing digital, desenvolvedor full stack, criação de sites, landing pages, n8n, automação IA, tráfego pago, Meta Ads, Google Ads, Belo Horizonte" />
   <meta name="author" content="Rogério Júnior" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.rogeriojunior.com.br/" />
@@ -22,19 +22,19 @@
   <meta property="og:url" content="https://www.rogeriojunior.com.br/" />
   <meta property="og:site_name" content="Rogério Júnior" />
   <meta property="og:locale" content="pt_BR" />
-  <meta property="og:title" content="Rogério Júnior - Desenvolvedor Full Stack & Consultor Digital em BH" />
+  <meta property="og:title" content="Rogério Júnior - Expert em Marketing Digital & Desenvolvedor Full Stack" />
   <meta property="og:description"
     content="Especialista em marketing digital, criação de sites, aplicativos e automações com IA. Transforme sua presença digital." />
   <meta property="og:image" content="https://www.rogeriojunior.com.br/images/rj.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Rogério Júnior - Consultor Digital" />
+  <meta property="og:image:alt" content="Rogério Júnior - Expert em Marketing Digital" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@Rogjunior9" />
   <meta name="twitter:creator" content="@Rogjunior9" />
-  <meta name="twitter:title" content="Rogério Júnior - Desenvolvedor Full Stack & Consultor Digital" />
+  <meta name="twitter:title" content="Rogério Júnior - Expert em Marketing Digital & Desenvolvedor Full Stack" />
   <meta name="twitter:description"
     content="Especialista em marketing digital, criação de sites, aplicativos e automações com IA." />
   <meta name="twitter:image" content="https://www.rogeriojunior.com.br/images/rj.jpg" />
@@ -48,27 +48,67 @@
   <meta name="theme-color" content="#010E80" />
   <meta name="msapplication-TileColor" content="#010E80" />
 
-  <title>Rogério Júnior - Desenvolvedor Full Stack & Consultor Digital em BH</title>
+  <title>Rogério Júnior - Expert em Marketing Digital & Desenvolvedor Full Stack</title>
 
-  <!-- Inicio Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2087D90NL"></script>
+  <!-- Consentimento padrão antes das tags de medição -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-
-    // Configuração inicial de consentimento
     gtag('consent', 'default', {
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'analytics_storage': 'denied'
     });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K3H6KMWF');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P2087D90NL"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-P2087D90NL');
-
   </script>
-  <!-- Fim Google tag (gtag.js) -->
+
+  <!-- Meta Pixel: carregado somente após consentimento -->
+  <script>
+    window.loadMetaPixel = function () {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', '457252723504341');
+      window.fbq('track', 'PageView');
+    };
+
+    if (localStorage.getItem('cookieConsent') === 'true') {
+      window.loadMetaPixel();
+    }
+  </script>
   <meta name="facebook-domain-verification" content="ge2vijvjmxphozpf7b15ku5lbbtbhq" /> <!--Facebook-->
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "sxt626p6jy");
+  </script>
 
   <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
@@ -80,7 +120,7 @@
         "@id": "https://www.rogeriojunior.com.br/#website",
         "url": "https://www.rogeriojunior.com.br/",
         "name": "Rogério Júnior",
-        "description": "Desenvolvedor Full Stack e Consultor Digital em Belo Horizonte",
+        "description": "Expert em Marketing Digital e Desenvolvedor Full Stack em Belo Horizonte",
         "inLanguage": "pt-BR"
       },
       {
@@ -89,8 +129,8 @@
         "name": "Rogério Júnior",
         "url": "https://www.rogeriojunior.com.br/",
         "image": "https://www.rogeriojunior.com.br/images/rj.jpg",
-        "jobTitle": "Desenvolvedor Full Stack & Consultor Digital",
-        "description": "Especialista em marketing digital, criação de sites, aplicativos e automações com IA",
+        "jobTitle": "Expert em Marketing Digital e Desenvolvedor Full Stack",
+        "description": "Estratégia de marketing digital, tráfego pago, criação de sites, aplicativos e automações com n8n e IA",
         "sameAs": [
           "https://instagram.com/rogjunior9",
           "https://facebook.com/orogjunior9",
@@ -110,8 +150,8 @@
       {
         "@type": "LocalBusiness",
         "@id": "https://www.rogeriojunior.com.br/#business",
-        "name": "Rogério Júnior - Consultoria Digital",
-        "description": "Agência de Marketing Digital e Desenvolvimento Web em Belo Horizonte",
+        "name": "Rogério Júnior - Marketing Digital e Tecnologia",
+        "description": "Marketing Digital, Tráfego Pago, Desenvolvimento Web e Automação em Belo Horizonte",
         "url": "https://www.rogeriojunior.com.br/",
         "telephone": "+55 31 98367-0777",
         "email": "contato@rogeriojunior.com.br",
@@ -147,6 +187,10 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K3H6KMWF"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

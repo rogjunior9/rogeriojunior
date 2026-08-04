@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Linkedin, Mail, ChevronDown, Code2, Palette, Rocket, Camera, Instagram, Facebook, Youtube, X } from "lucide-react";
+import { Linkedin, Mail, ChevronDown, Code2, Target, Workflow, Globe2, Instagram, Facebook, Youtube, X } from "lucide-react";
 
 import ProjectCard from "../components/ProjectCard";
 import SkillCard from "../components/SkillCard";
@@ -31,10 +31,10 @@ function Home() {
   return (
     <div className="bg-black text-white min-h-screen">
       <SEO
-        title="Rogério Júnior - Desenvolvedor Full Stack & Consultor Digital em BH"
-        description="Desenvolvedor Full Stack e Consultor Digital em Belo Horizonte. Especialista em marketing digital, criação de sites, aplicativos e automações com IA."
+        title="Expert em Marketing Digital & Desenvolvedor Full Stack em BH"
+        description="Expert em marketing digital e desenvolvedor full stack em Belo Horizonte. Estratégia, tráfego pago, sites, landing pages, aplicativos e automações com n8n e IA."
         canonical="/"
-        keywords="desenvolvedor full stack, marketing digital, consultor digital, criação de sites, BH, Belo Horizonte"
+        keywords="expert em marketing digital, desenvolvedor full stack, tráfego pago, criação de sites, n8n, automação, BH, Belo Horizonte"
       />
       {/* Hero Section */}
       <section
@@ -52,7 +52,7 @@ function Home() {
             Rogério Júnior
           </h1>
           <p className="text-xl md:text-2xl font-light tracking-wide text-gray-400 mb-8 font-sans">
-            Desenvolvedor Full Stack <span className="text-accent">•</span> Consultor Digital
+            Desenvolvedor Full Stack <span className="text-accent">•</span> Expert em Marketing Digital
           </p>
           <div className="flex gap-6 justify-center mb-12">
             <a
@@ -127,47 +127,47 @@ function Home() {
               <picture>
                 <source
                   type="image/webp"
-                  srcSet="/images/rj-sm.webp 400w, /images/rj-md.webp 800w, /images/rj.webp 1200w"
+                  srcSet="/images/rogerio-sobre-terno-2026-sm.webp 400w, /images/rogerio-sobre-terno-2026-md.webp 800w, /images/rogerio-sobre-terno-2026.webp 1100w"
                   sizes="(max-width: 640px) 100vw, 400px"
                 />
                 <img
-                  src="/images/rj.jpg"
-                  alt="Rogério Júnior - Desenvolvedor Full Stack"
-                  className="rounded-lg shadow-2xl border-2 border-primary"
+                  src="/images/rogerio-sobre-terno-2026.jpg"
+                  alt="Rogério Júnior - Expert em Marketing Digital e Desenvolvedor Full Stack"
+                  className="w-full aspect-[4/5] object-cover object-top rounded-lg shadow-2xl border-2 border-primary"
                   width="400"
-                  height="400"
+                  height="500"
                   loading="lazy"
                 />
               </picture>
             </div>
             <div className="space-y-4">
               <p className="text-gray-300 text-justify text-lg font-light leading-relaxed font-sans">
-                Desenvolvedor No-code especialista em Bubble. Crio soluções web
-                personalizadas e eficientes, agilizando o desenvolvimento e
-                reduzindo custos. Experiência em WordPress e forte background em
-                estratégia digital, garantindo resultados que impulsionam
-                negócios.
+                Uno marketing, tecnologia e automação para transformar presença
+                digital em oportunidades reais de negócio. Planejo campanhas de
+                tráfego, desenvolvo sites, landing pages e aplicativos, e conecto
+                ferramentas com n8n, IA, APIs e CRMs para captar, qualificar e
+                acompanhar leads com mais eficiência.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <SkillCard
+                  icon={<Target className="text-accent" />}
+                  title="Marketing"
+                  description="Estratégia e Tráfego"
+                />
+                <SkillCard
+                  icon={<Globe2 className="text-accent" />}
+                  title="Sites"
+                  description="WordPress e Landing Pages"
+                />
+                <SkillCard
+                  icon={<Workflow className="text-accent" />}
+                  title="Automação"
+                  description="n8n e IA"
+                />
+                <SkillCard
                   icon={<Code2 className="text-accent" />}
                   title="Desenvolvimento"
-                  description="Full Stack"
-                />
-                <SkillCard
-                  icon={<Palette className="text-accent" />}
-                  title="Design"
-                  description="UI/UX"
-                />
-                <SkillCard
-                  icon={<Rocket className="text-accent" />}
-                  title="Estratégia"
-                  description="Crescimento"
-                />
-                <SkillCard
-                  icon={<Camera className="text-accent" />}
-                  title="Marketing"
-                  description="Digital"
+                  description="Full Stack e No-code"
                 />
               </div>
             </div>
@@ -183,15 +183,6 @@ function Home() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <ProjectCard
-              id="carol-silva"
-              title="Carol Silva Podologia"
-              description="Site institucional moderno e responsivo para clínica de podologia, focado em conversão e agendamento."
-              image="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
-              tags={["Site Institucional", "Saúde", "Design"]}
-              link="https://www.carolsilvapodologia.com.br"
-              isHighlighted={highlightedCard === "carol-silva"}
-            />
-            <ProjectCard
               id="mg-solos"
               title="MG Solos"
               description="Site corporativo para empresa de engenharia de solos, transmitindo autoridade e confiança técnica."
@@ -201,22 +192,58 @@ function Home() {
               isHighlighted={highlightedCard === "mg-solos"}
             />
             <ProjectCard
-              id="lista-mercado"
-              title="Lista de Mercado"
-              description="Um aplicativo pensado para que você pare de apanhar da esposa. Pare de esquecer do precisa ser comprado no mercado."
-              image="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800"
-              tags={["Bubble", "Full Stack", "Mercado"]}
-              link="https://lista-de-mercado-40169.bubbleapps.io/version-test"
-              isHighlighted={highlightedCard === "lista-mercado"}
+              id="beth-tabuas"
+              title="Beth Tábuas e Presentes"
+              description="Landing page para cestas, tábuas e presentes personalizados, com apresentação clara dos produtos e contato direto para pedidos."
+              image="/images/projects/beth-tabuas-hero.webp"
+              tags={["Landing Page", "Presentes", "Conversão"]}
+              link="https://rogeriojunior.com.br/beth/"
+              isHighlighted={highlightedCard === "beth-tabuas"}
             />
             <ProjectCard
-              id="peladeiros"
-              title="Peladeiros"
-              description="Aplicativo gamificado para controle financeiro e sorteio de jogadores para peladas."
-              image="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&q=80&w=800"
-              tags={["Bubble", "Esportes", "Futebol"]}
-              link="https://peladeiros-41371.bubbleapps.io/version-test"
-              isHighlighted={highlightedCard === "peladeiros"}
+              id="donna-isa"
+              title="Donna Isa"
+              description="Site comercial para cestas de presente personalizadas em Santo André, com catálogo por ocasião e pedidos direcionados ao WhatsApp."
+              image="/images/projects/donna-isa-hero.webp"
+              tags={["Site Comercial", "Cestas", "WhatsApp"]}
+              link="https://donnaisa.com.br/"
+              isHighlighted={highlightedCard === "donna-isa"}
+            />
+            <ProjectCard
+              id="andreia-rodrigues"
+              title="Andreia Rodrigues Presentes"
+              description="Site para cestas de café da manhã e presentes personalizados, com posicionamento elegante e foco em pedidos na Zona Sul do Rio de Janeiro."
+              image="/images/projects/andreia-rodrigues-hero.webp"
+              tags={["Landing Page", "Presentes", "Conversão"]}
+              link="https://andreiarodriguescestas.com.br/"
+              isHighlighted={highlightedCard === "andreia-rodrigues"}
+            />
+            <ProjectCard
+              id="claudia-cestas"
+              title="Cláudia Cestas Criativas"
+              description="Site de vendas para cestas de café da manhã, tábuas de frios e presentes personalizados em Salvador, integrado ao atendimento pelo WhatsApp."
+              image="/images/projects/claudia-cestas-hero.webp"
+              tags={["Site Comercial", "Gastronomia", "WhatsApp"]}
+              link="https://claudiacestascriativas.com.br/"
+              isHighlighted={highlightedCard === "claudia-cestas"}
+            />
+            <ProjectCard
+              id="cestas-kimara"
+              title="Cestas Kimara"
+              description="Landing page para cestas e presentes em Franca, com catálogo, diferenciais, depoimentos, FAQ e chamadas diretas para pedidos."
+              image="/images/projects/cestas-kimara-hero.webp"
+              tags={["Landing Page", "Cestas", "Conversão"]}
+              link="https://www.cestaskimara.com.br/"
+              isHighlighted={highlightedCard === "cestas-kimara"}
+            />
+            <ProjectCard
+              id="ingles-com-renato"
+              title="Inglês com Renato"
+              description="Portal educacional automatizado que puxa os vídeos diretamente do canal do Renato no YouTube, mantendo o site atualizado com novos conteúdos de inglês."
+              image="/images/projects/ingles-com-renato-hero.webp"
+              tags={["WordPress", "YouTube", "Automação"]}
+              link="https://inglescomrenato.com.br/"
+              isHighlighted={highlightedCard === "ingles-com-renato"}
             />
             <ProjectCard
               id="merits"
@@ -228,19 +255,10 @@ function Home() {
               isHighlighted={highlightedCard === "merits"}
             />
             <ProjectCard
-              id="motoristaapp"
-              title="MotoristaApp"
-              description="Um aplicativo moderno, pensado para motoristas de aplicativos controlarem seus ganhos"
-              image="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800"
-              tags={["Bubble", "99", "Uber"]}
-              link="https://motoristaapp-95911.bubbleapps.io/version-test"
-              isHighlighted={highlightedCard === "motoristaapp"}
-            />
-            <ProjectCard
               id="gerador-qrcode"
               title="Gerador de QR Code"
               description="Ferramenta gratuita para criar QR Codes personalizados. Escolha cores, tamanho e baixe em PNG ou SVG."
-              image="https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&q=80&w=800"
+              image="/images/projects/gerador-qrcode-phone.webp"
               tags={["Ferramenta", "Gratuito", "QR Code"]}
               link="/gerador-qrcode"
               isHighlighted={highlightedCard === "gerador-qrcode"}
@@ -256,7 +274,7 @@ function Home() {
             Vamos Trabalhar Juntos
           </h2>
           <p className="text-xl text-gray-400 font-light mb-12 font-sans">
-            Estou sempre aberto para discutir novos projetos e oportunidades.
+            Conte o que você quer vender, organizar ou automatizar. Eu ajudo a transformar a ideia em uma solução digital prática e orientada a resultados.
           </p>
           <ContactForm />
         </div>

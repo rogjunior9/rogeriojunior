@@ -21,7 +21,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   isHighlighted = false,
 }) => {
   return (
-    <a href={link || "#"}>
+    <a
+      href={link || "#"}
+      target={link.startsWith("http") ? "_blank" : undefined}
+      rel={link.startsWith("http") ? "noopener noreferrer" : undefined}
+      aria-label={`Ver projeto ${title}`}
+    >
       <div
         id={id}
         className={`group relative overflow-hidden rounded-xl bg-zinc-900 border border-zinc-800 transition-all hover:scale-[1.02] ${isHighlighted ? 'ring-2 ring-accent scale-105' : ''

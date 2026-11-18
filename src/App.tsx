@@ -10,6 +10,7 @@ import { trackLead } from './lib/analytics';
 const Home = lazy(() => import('./pages/Home'));
 const MarketingDigital = lazy(() => import('./pages/MarketingDigital'));
 const AutomacoesIA = lazy(() => import('./pages/AutomacoesIA'));
+const Projetos = lazy(() => import('./pages/Projetos'));
 const Agendamento = lazy(() => import('./pages/Agendamento'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const TermsAndConditions = lazy(() => import('./pages/TermsAndConditions'));
@@ -95,7 +96,7 @@ function App() {
 
   const LoadingFallback = () => (
     <div className="min-h-screen bg-black flex items-center justify-center">
-      <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+      <Loader2 className="w-8 h-8 text-[#B91C1C] animate-spin" />
     </div>
   );
 
@@ -109,6 +110,8 @@ function App() {
             <Route path="/marketing-digital" element={<MarketingDigital />} />
             <Route path="/servicos-digitais" element={<Navigate to="/marketing-digital" replace />} />
             <Route path="/automacoes-ia" element={<AutomacoesIA />} />
+            <Route path="/projetos" element={<Projetos />} />
+            <Route path="/apps" element={<Navigate to="/projetos" replace />} />
             <Route path="/agendamento" element={<Agendamento />} />
             <Route path="/politica-privacidade" element={<PrivacyPolicy />} />
             <Route path="/termos" element={<TermsAndConditions />} />
@@ -121,25 +124,25 @@ function App() {
       <SdrChat />
 
       {showConsent && (
-        <div className="fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-800 p-4 shadow-lg">
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950 border-t border-zinc-800 p-4 shadow-lg">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-300 text-center sm:text-left">
               Este site utiliza cookies para melhorar sua experiência.
               Ao continuar, você concorda com nossa{' '}
-              <a href="/politica-privacidade" className="text-blue-400 hover:text-blue-300">
+              <a href="/politica-privacidade" className="text-[#B91C1C] hover:underline font-semibold">
                 Política de Privacidade
               </a>.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               <button
                 onClick={handleAccept}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors"
+                className="bg-[#B91C1C] hover:bg-[#991B1B] text-white px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-colors"
               >
                 Aceitar
               </button>
               <button
                 onClick={handleDecline}
-                className="bg-gray-700 hover:bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors"
+                className="bg-zinc-800 hover:bg-zinc-700 text-white px-5 py-2 rounded-md text-xs font-bold uppercase tracking-wider transition-colors"
               >
                 Recusar
               </button>
@@ -148,7 +151,7 @@ function App() {
                 className="text-gray-400 hover:text-white"
                 aria-label="Fechar aviso de cookies"
               >
-                <X size={24} />
+                <X size={22} />
               </button>
             </div>
           </div>

@@ -1,65 +1,64 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+
+const navItems = [
+  { to: "/", label: "Início" },
+  { to: "/marketing-digital", label: "Tráfego & Estrutura" },
+  { to: "/automacoes-ia", label: "Automações & IA" },
+  { to: "/projetos", label: "Apps & Projetos" },
+  { to: "/agendamento", label: "Agendamento" },
+];
 
 const Header: React.FC = () => {
+  const { pathname } = useLocation();
+
   return (
-    <header className="bg-black py-4 border-b border-zinc-800">
-      <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-y-3">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="relative h-[72px] sm:h-[84px] lg:h-[100px] overflow-hidden flex">
-            <picture>
-              <source
-                type="image/webp"
-                srcSet="/images/logo-rj-sm.webp 400w, /images/logo-rj-md.webp 800w, /images/logo-rj.webp 1200w"
-                sizes="(max-width: 640px) 200px, 300px"
-              />
-              <img
-                src="/images/logo-rj.png"
-                alt="Logo Rogério Júnior"
-                className="h-full w-auto object-contain"
-                width="300"
-                height="100"
-              />
-            </picture>
-          </div>
+    <header className="sticky top-0 z-40 bg-black/95 backdrop-blur border-b border-zinc-800">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-y-3 gap-x-4">
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src="/images/avatar-dark.png"
+            alt="Monograma RJ"
+            className="h-11 w-11 rounded-full border border-zinc-800 object-cover transition-transform group-hover:scale-105"
+            width="44"
+            height="44"
+          />
+          <span className="font-extrabold text-xl sm:text-2xl tracking-[-0.03em] text-white">
+            rogério<span className="text-[#B91C1C]">júnior.</span>
+          </span>
         </Link>
-        <nav className="order-3 flex w-full items-center justify-center gap-4 border-t border-zinc-800 pt-3 text-xs font-display uppercase tracking-wider lg:order-none lg:w-auto lg:gap-6 lg:border-0 lg:pt-0 lg:text-base" aria-label="Navegação principal">
-          <Link
-            to="/marketing-digital"
-            className="text-gray-300 hover:text-accent transition-colors font-bold"
-          >
-            Marketing Digital
-          </Link>
-          <Link
-            to="/automacoes-ia"
-            className="text-gray-300 hover:text-accent transition-colors font-bold"
-          >
-            Automações IA
-          </Link>
-          <Link
-            to="/agendamento"
-            className="text-gray-300 hover:text-accent transition-colors font-bold"
-          >
-            Agendamento
-          </Link>
+
+        <nav
+          className="order-3 flex w-full flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-zinc-800 pt-3 text-xs font-bold uppercase tracking-wider lg:order-none lg:w-auto lg:border-0 lg:pt-0 lg:text-[13px]"
+          aria-label="Navegação principal"
+        >
+          {navItems.map((item) => {
+            const isActive = pathname === item.to;
+            return (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={`transition-colors ${
+                  isActive ? "text-[#B91C1C]" : "text-gray-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
+
         <a
           href="https://wa.me/5531983670777"
           target="_blank"
           rel="noopener noreferrer"
           data-lead-location="cabecalho_orcamento"
-          className="group flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-black px-4 py-2.5 sm:px-5 sm:py-3 rounded-full uppercase font-bold font-display transition-all duration-200 tracking-wide text-xs sm:text-sm shadow-[0_0_0_1px_rgba(255,255,255,0.14),0_8px_24px_rgba(37,211,102,0.22)] hover:-translate-y-0.5 hover:shadow-[0_0_0_1px_rgba(255,255,255,0.22),0_10px_30px_rgba(37,211,102,0.34)]"
-          aria-label="Fale com o Rogério pelo WhatsApp"
+          className="inline-flex items-center gap-2 bg-[#B91C1C] hover:bg-[#991B1B] text-white px-4 py-2.5 sm:px-5 sm:py-3 rounded-md font-bold transition-colors text-xs sm:text-sm tracking-tight"
+          aria-label="Falar com Rogério no WhatsApp"
         >
-          <img
-            src="/whatsapp.svg"
-            alt=""
-            className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-110"
-            width="24"
-            height="24"
-          />
-          <span className="hidden sm:inline">Fale com o Rogério</span>
-          <span className="inline sm:hidden">Fale com Rogério</span>
+          <span>Falar com Rogério</span>
+          <ArrowUpRight size={16} aria-hidden="true" />
         </a>
       </div>
     </header>

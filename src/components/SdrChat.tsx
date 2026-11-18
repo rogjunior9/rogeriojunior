@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent, KeyboardEvent } from 'react';
 import {
-  Bot,
   Loader2,
   MessageCircle,
   Minimize2,
@@ -327,32 +326,32 @@ export default function SdrChat() {
     <>
       {isOpen && (
         <aside
-          className="fixed inset-x-0 bottom-0 z-[90] flex h-[min(720px,92dvh)] flex-col overflow-hidden rounded-t-3xl border border-zinc-700 bg-zinc-950 shadow-[0_28px_90px_rgba(0,0,0,0.65)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:h-[min(650px,calc(100dvh-48px))] sm:w-[390px] sm:rounded-3xl"
+          className="fixed inset-x-0 bottom-0 z-[90] flex h-[min(720px,92dvh)] flex-col overflow-hidden rounded-t-3xl border border-zinc-800 bg-black shadow-[0_28px_90px_rgba(0,0,0,0.75)] sm:inset-x-auto sm:bottom-6 sm:right-6 sm:h-[min(650px,calc(100dvh-48px))] sm:w-[390px] sm:rounded-3xl"
           role="dialog"
           aria-label="Atendimento virtual"
         >
-          <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-800 px-5 py-4">
-            <div className="absolute -right-10 -top-12 h-32 w-32 rounded-full bg-white/10 blur-2xl" />
+          <header className="relative overflow-hidden border-b border-zinc-800 bg-black px-5 py-4">
+            <div className="absolute -right-10 -top-12 h-32 w-32 rounded-full bg-[#B91C1C]/20 blur-2xl" />
             <div className="relative flex items-center gap-3">
-              <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-black/25 ring-1 ring-white/20">
-                <Bot className="h-6 w-6 text-white" aria-hidden="true" />
-                <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-emerald-600 bg-lime-300" />
+              <div className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-700 bg-black">
+                <img src="/images/avatar-dark.png" alt="RJ" className="h-10 w-10 rounded-full object-cover" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-black bg-[#B91C1C]" />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <h2 className="truncate font-display text-lg font-bold uppercase tracking-wide text-white">
-                    Assistente do Rogério
+                  <h2 className="truncate text-base font-extrabold tracking-tight text-white">
+                    rogério<span className="text-[#B91C1C]">júnior.</span> IA
                   </h2>
-                  <Sparkles className="h-4 w-4 text-emerald-100" aria-hidden="true" />
+                  <Sparkles className="h-4 w-4 text-[#B91C1C]" aria-hidden="true" />
                 </div>
-                <p className="text-xs font-medium text-emerald-50/90">
-                  SDR virtual • disponível agora
+                <p className="text-xs font-medium text-zinc-400">
+                  Atendimento inteligente · online agora
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="rounded-xl p-2 text-white/80 transition hover:bg-black/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-white/70"
+                className="rounded-xl p-2 text-zinc-400 transition hover:bg-zinc-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C1C]"
                 aria-label="Minimizar atendimento"
               >
                 <Minimize2 className="h-5 w-5" />
@@ -362,10 +361,10 @@ export default function SdrChat() {
 
           <div
             ref={listRef}
-            className="flex-1 space-y-4 overflow-y-auto bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.08),_transparent_36%)] px-4 py-5"
+            className="flex-1 space-y-4 overflow-y-auto bg-[radial-gradient(circle_at_top,_rgba(185,28,28,0.08),_transparent_40%)] px-4 py-5"
             aria-live="polite"
           >
-            <div className="mx-auto w-fit rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1 text-[11px] font-medium text-zinc-400">
+            <div className="mx-auto w-fit rounded-full border border-zinc-800 bg-zinc-900/90 px-3 py-1 text-[11px] font-medium text-zinc-400">
               Atendimento seguro pelo site
             </div>
 
@@ -377,16 +376,16 @@ export default function SdrChat() {
                 <div
                   className={`max-w-[86%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
                     message.role === 'user'
-                      ? 'rounded-br-md bg-emerald-500 text-black'
+                      ? 'rounded-br-md bg-[#B91C1C] text-white'
                       : message.failed
-                        ? 'rounded-bl-md border border-amber-700/40 bg-amber-950/50 text-amber-50'
+                        ? 'rounded-bl-md border border-[#B91C1C]/40 bg-red-950/40 text-red-100'
                         : 'rounded-bl-md border border-zinc-800 bg-zinc-900 text-zinc-100'
                   }`}
                 >
                   <p className="whitespace-pre-wrap break-words">{message.content}</p>
                   <span
                     className={`mt-1.5 block text-right text-[10px] ${
-                      message.role === 'user' ? 'text-emerald-950/70' : 'text-zinc-500'
+                      message.role === 'user' ? 'text-red-100/80' : 'text-zinc-500'
                     }`}
                   >
                     {formatTime(message.createdAt)}
@@ -403,7 +402,7 @@ export default function SdrChat() {
                     type="button"
                     onClick={() => void sendMessage(reply)}
                     disabled={isSending}
-                    className="rounded-xl border border-emerald-500/30 bg-emerald-500/5 px-3 py-2.5 text-left text-xs font-medium text-emerald-100 transition hover:border-emerald-400/70 hover:bg-emerald-500/10 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-3 py-2.5 text-left text-xs font-semibold text-zinc-200 transition hover:border-[#B91C1C] hover:bg-[#B91C1C]/10 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {reply}
                   </button>
@@ -414,14 +413,14 @@ export default function SdrChat() {
             {isSending && (
               <div className="flex justify-start">
                 <div className="flex items-center gap-2 rounded-2xl rounded-bl-md border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-zinc-400">
-                  <Loader2 className="h-4 w-4 animate-spin text-emerald-400" />
+                  <Loader2 className="h-4 w-4 animate-spin text-[#B91C1C]" />
                   Analisando sua mensagem...
                 </div>
               </div>
             )}
           </div>
 
-          <footer className="border-t border-zinc-800 bg-zinc-950 p-3">
+          <footer className="border-t border-zinc-800 bg-black p-3">
             <form onSubmit={handleSubmit} className="flex items-end gap-2">
               <label htmlFor="sdr-chat-message" className="sr-only">
                 Escreva sua mensagem
@@ -437,12 +436,12 @@ export default function SdrChat() {
                 rows={1}
                 placeholder="Digite sua mensagem..."
                 disabled={isSending}
-                className="max-h-28 min-h-11 flex-1 resize-none rounded-2xl border border-zinc-700 bg-zinc-900 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 disabled:opacity-60"
+                className="max-h-28 min-h-11 flex-1 resize-none rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-white outline-none transition placeholder:text-zinc-500 focus:border-[#B91C1C] focus:ring-2 focus:ring-[#B91C1C]/25 disabled:opacity-60"
               />
               <button
                 type="submit"
                 disabled={!draft.trim() || isSending}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 text-black transition hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:ring-offset-2 focus:ring-offset-zinc-950 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#B91C1C] text-white transition hover:bg-[#991B1B] focus:outline-none focus:ring-2 focus:ring-[#B91C1C] focus:ring-offset-2 focus:ring-offset-black disabled:cursor-not-allowed disabled:opacity-40"
                 aria-label="Enviar mensagem"
               >
                 {isSending ? (
@@ -468,7 +467,7 @@ export default function SdrChat() {
       {!isOpen && (
         <div className="fixed bottom-5 right-4 z-[89] flex items-end gap-3 sm:bottom-6 sm:right-6">
           {showTeaser && (
-            <div className="relative max-w-[260px] rounded-2xl border border-zinc-700 bg-zinc-950 p-4 pr-9 text-sm text-zinc-100 shadow-2xl">
+            <div className="relative max-w-[260px] rounded-2xl border border-zinc-800 bg-zinc-950 p-4 pr-9 text-sm text-zinc-100 shadow-2xl">
               <button
                 type="button"
                 onClick={() => setShowTeaser(false)}
@@ -477,7 +476,7 @@ export default function SdrChat() {
               >
                 <X className="h-3.5 w-3.5" />
               </button>
-              <p className="font-semibold text-white">Posso ajudar?</p>
+              <p className="font-bold text-white">Posso ajudar?</p>
               <p className="mt-1 text-xs leading-relaxed text-zinc-400">
                 Conte seu objetivo e descubra a melhor solução para o seu negócio.
               </p>
@@ -487,11 +486,11 @@ export default function SdrChat() {
           <button
             type="button"
             onClick={openChat}
-            className="group relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-black shadow-[0_14px_38px_rgba(16,185,129,0.4)] transition hover:scale-105 hover:bg-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/30"
+            className="group relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#B91C1C] text-white shadow-[0_14px_38px_rgba(185,28,28,0.45)] transition hover:scale-105 hover:bg-[#991B1B] focus:outline-none focus:ring-4 focus:ring-[#B91C1C]/35"
             aria-label="Abrir atendimento virtual"
           >
             <MessageCircle className="h-7 w-7 transition group-hover:scale-110" />
-            <span className="absolute right-0 top-0 h-4 w-4 rounded-full border-2 border-black bg-lime-300" />
+            <span className="absolute right-0 top-0 h-4 w-4 rounded-full border-2 border-black bg-white" />
           </button>
         </div>
       )}

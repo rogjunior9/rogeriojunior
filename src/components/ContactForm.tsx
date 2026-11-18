@@ -9,7 +9,7 @@ type FormStatus = {
 };
 
 const inputClassName =
-  'w-full px-4 py-3 bg-zinc-800 border border-zinc-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent text-white';
+  'w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#B91C1C] focus:border-transparent text-white placeholder-gray-500 font-medium';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,7 +34,7 @@ const ContactForm = () => {
 
       setStatus({
         type: 'success',
-        message: 'Mensagem enviada! Recebi seus dados e entrarei em contato em breve.',
+        message: 'Recebi seu diagnóstico! Vou analisar seu cenário e responder em breve.',
       });
       form.reset();
 
@@ -46,7 +46,7 @@ const ContactForm = () => {
     } catch {
       setStatus({
         type: 'error',
-        message: 'Não foi possível enviar agora. Tente novamente ou fale comigo pelo WhatsApp.',
+        message: 'Não foi possível enviar agora. Me chame direto no WhatsApp.',
       });
     } finally {
       setIsSubmitting(false);
@@ -54,10 +54,10 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6" aria-label="Formulário de contato">
+    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-5 text-left" aria-label="Formulário de contato">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-          Nome
+        <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+          Seu nome
         </label>
         <input
           type="text"
@@ -68,62 +68,64 @@ const ContactForm = () => {
           maxLength={100}
           autoComplete="name"
           className={inputClassName}
-          placeholder="Seu nome"
+          placeholder="Como você se chama?"
         />
       </div>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-          E-mail
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          maxLength={160}
-          autoComplete="email"
-          className={inputClassName}
-          placeholder="seu@email.com"
-        />
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="email" className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+            E-mail
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            maxLength={160}
+            autoComplete="email"
+            className={inputClassName}
+            placeholder="seu@email.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+            WhatsApp
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            minLength={10}
+            maxLength={30}
+            autoComplete="tel"
+            className={inputClassName}
+            placeholder="(31) 99999-9999"
+          />
+        </div>
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-          WhatsApp
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          required
-          minLength={10}
-          maxLength={30}
-          autoComplete="tel"
-          className={inputClassName}
-          placeholder="(31) 99999-9999"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-          Como posso ajudar?
+        <label htmlFor="service" className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+          Qual é a sua maior urgência hoje?
         </label>
         <select id="service" name="service" required className={inputClassName} defaultValue="">
           <option value="" disabled>
             Selecione uma opção
           </option>
-          <option value="Tráfego pago">Tráfego pago</option>
-          <option value="Site ou landing page">Site ou landing page</option>
-          <option value="Automação com n8n ou IA">Automação com n8n ou IA</option>
-          <option value="WhatsApp, chatbot ou CRM">WhatsApp, chatbot ou CRM</option>
-          <option value="Outro projeto">Outro projeto</option>
+          <option value="Tráfego pago">Atrair mais clientes com Tráfego Pago</option>
+          <option value="Site ou landing page">Criar Site ou Landing Page de alta conversão</option>
+          <option value="Automação com n8n ou IA">Automatizar atendimento com IA, AutoDM ou n8n</option>
+          <option value="WhatsApp, chatbot ou CRM">Organizar funil comercial e CRM</option>
+          <option value="Outro projeto">Estrutura completa (Tráfego + Página + Automação)</option>
         </select>
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-          Conte um pouco sobre o seu objetivo
+        <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">
+          Fale sobre o seu negócio
         </label>
         <textarea
           id="message"
@@ -131,9 +133,9 @@ const ContactForm = () => {
           required
           minLength={10}
           maxLength={3000}
-          rows={5}
+          rows={4}
           className={`${inputClassName} resize-none`}
-          placeholder="O que você deseja vender, melhorar ou automatizar?"
+          placeholder="O que você vende hoje e qual resultado quer alcançar nos próximos 90 dias?"
         />
       </div>
 
@@ -146,10 +148,10 @@ const ContactForm = () => {
         <div
           role="status"
           aria-live="polite"
-          className={`p-4 rounded-lg ${
+          className={`p-4 rounded-lg text-sm font-medium ${
             status.type === 'success'
-              ? 'bg-green-500/10 text-green-400 border border-green-500/20'
-              : 'bg-red-500/10 text-red-400 border border-red-500/20'
+              ? 'bg-emerald-950/60 text-emerald-300 border border-emerald-700/50'
+              : 'bg-red-950/60 text-red-300 border border-[#B91C1C]'
           }`}
         >
           {status.message}
@@ -159,14 +161,14 @@ const ContactForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-accent hover:bg-yellow-600 disabled:bg-zinc-700 disabled:text-gray-400 disabled:cursor-not-allowed text-black font-bold py-3 px-8 rounded-full transition-colors flex items-center justify-center gap-2"
+        className="w-full bg-[#B91C1C] hover:bg-[#991B1B] disabled:bg-zinc-800 disabled:text-gray-500 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-md transition-colors flex items-center justify-center gap-2 text-sm uppercase tracking-wider"
       >
         {isSubmitting ? (
           'Enviando...'
         ) : (
           <>
-            Solicitar contato
-            <Send size={20} />
+            Quero meu diagnóstico
+            <Send size={18} />
           </>
         )}
       </button>

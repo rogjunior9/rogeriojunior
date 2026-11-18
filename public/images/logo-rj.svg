@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none">
+  <!-- Barras superiores vermelhas características do monograma RJ -->
+  <polygon points="0,1 81,61 81,79 0,18" fill="#B91C1C"/>
+  <polygon points="140,1 140,18 96,60 96,38" fill="#B91C1C"/>
+  <!-- Letra R em formato geométrico de seta -->
+  <polygon points="0,65 54,65 78,85 40,85 99,140 71,140 18,92 18,140 0,140" fill="currentColor"/>
+  <!-- Letra J geométrica chanfrada -->
+  <polygon points="140,35 140,128 128,140 106,140 85,120 107,120 113,126 121,126 121,53" fill="currentColor"/>
+</svg>

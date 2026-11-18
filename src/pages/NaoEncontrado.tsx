@@ -5,19 +5,21 @@ function NaoEncontrado() {
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       <div className="text-center">
-        <h1 className="text-9xl font-display font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500">
-          404
+        <h1 className="text-8xl sm:text-9xl font-extrabold mb-4 tracking-tighter text-white">
+          4<span className="text-[#B91C1C]">0</span>4
         </h1>
-        <p className="text-2xl mb-8 text-gray-400 font-display uppercase tracking-widest">Ops! Página não encontrada</p>
-        <p className="text-gray-500 mb-8 max-w-md mx-auto font-sans font-light">
-          A página que você está procurando não existe ou foi movida para outro endereço.
+        <p className="text-xl mb-6 text-gray-300 font-extrabold uppercase tracking-wider">
+          Página não encontrada
+        </p>
+        <p className="text-gray-400 mb-8 max-w-md mx-auto text-sm font-medium">
+          O endereço que você acessou não existe ou foi movido.
         </p>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 bg-accent hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-none transition-colors font-display uppercase tracking-wider"
+          className="inline-flex items-center gap-2 bg-[#B91C1C] hover:bg-[#991B1B] text-white font-extrabold py-3.5 px-7 rounded-md transition-colors text-xs uppercase tracking-wider"
         >
-          <Home size={20} />
-          Voltar para Home
+          <Home size={18} />
+          Voltar para Início
         </Link>
       </div>
     </div>

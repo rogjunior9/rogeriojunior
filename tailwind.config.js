@@ -4,14 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#010E80',  // Inter Blue
-        secondary: '#000000', // Inter Black
-        accent: '#C5A059',    // Inter Gold (Premium)
-        hover: '#1a27a3',     // Lighter Blue for hover
+        primary: '#B91C1C',
+        secondary: '#000000',
+        accent: '#B91C1C',
+        hover: '#991B1B',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Oswald', 'sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
+        display: ['Montserrat', 'sans-serif'],
       },
     },
   },
